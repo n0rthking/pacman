@@ -62,6 +62,10 @@ public class Hrac {
                 this.skore += 1;
             }
         }
+
+        if (this.skore == mapa.getMaxPocetBodov()) {
+            System.out.println("uz mas vsetky body");
+        }
     }
 
     public void vykresliSa(SpriteBatch batch, float delta) {

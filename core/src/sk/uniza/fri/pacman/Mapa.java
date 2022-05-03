@@ -12,6 +12,7 @@ public class Mapa {
     private final HashMap<Vector2, Policko> mapa;
     private final HashMap<Character, ITovarenNaPolicka> tovarenNaPolicka;
     private final ManazerTextur manazerTextur;
+    private int maxPocetBodov;
 
     public Mapa(ManazerTextur manazerTextur) {
         this.mapa = new HashMap<>();
@@ -35,10 +36,11 @@ public class Mapa {
         while (skener.hasNextLine()) {
             String obsah = skener.nextLine();
             for (int stlpec = 0; stlpec < obsah.length(); stlpec++) {
-                // x stlpec
-                // y riadok
                 Vector2 pozicia = new Vector2(stlpec, riadok);
                 this.mapa.put(pozicia, this.tovarenNaPolicka.get(obsah.charAt(stlpec)).vytvor(this.manazerTextur, pozicia));
+                if (obsah.charAt(stlpec) == 'p') {
+                    this.maxPocetBodov++;
+                }
             }
             riadok--;
         }
@@ -52,5 +54,9 @@ public class Mapa {
 
     public Policko getPolicko(Vector2 pozicia) {
         return this.mapa.get(pozicia);
+    }
+
+    public int getMaxPocetBodov() {
+        return this.maxPocetBodov;
     }
 }
