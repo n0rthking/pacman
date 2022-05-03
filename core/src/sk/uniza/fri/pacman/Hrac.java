@@ -16,6 +16,7 @@ public class Hrac {
     private float pocitadloAnimacia;
     private final ManazerTextur manazerTextur;
     private Animation<Texture> aktualnaAnimacia;
+    private int skore;
     //tmp
     private final BitmapFont font;
 
@@ -53,6 +54,14 @@ public class Hrac {
         if (!mapa.getPolicko(novaPozicia).jePrekazka()) {
             this.pozicia = novaPozicia;
         }
+
+        if (mapa.getPolicko(this.pozicia) instanceof Bod) {
+            Bod aktualnyBod = (Bod) mapa.getPolicko(this.pozicia);
+            if (aktualnyBod.jeViditelny()) {
+                aktualnyBod.zneviditelni();
+                this.skore += 1;
+            }
+        }
     }
 
     public void vykresliSa(SpriteBatch batch, float delta) {
@@ -60,7 +69,7 @@ public class Hrac {
         batch.draw(this.aktualnaAnimacia.getKeyFrame(this.pocitadloAnimacia), this.pozicia.x * 32, this.pozicia.y * 32);
         // tmp
         this.font.setColor(Color.WHITE);
-        this.font.draw(batch, String.format("%d", Gdx.graphics.getFramesPerSecond()), 50, Gdx.graphics.getHeight() - 50);
+        this.font.draw(batch, String.format("%d %d", Gdx.graphics.getFramesPerSecond(), this.skore), 50, Gdx.graphics.getHeight() - 50);
     }
 
     public Vector2 getPozicia() {
