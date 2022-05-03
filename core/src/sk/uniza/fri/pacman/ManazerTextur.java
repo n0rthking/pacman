@@ -8,9 +8,17 @@ public class ManazerTextur {
     private Animation<Texture> hracDole;
     private Animation<Texture> hracVlavo;
     private Animation<Texture> hracVpravo;
+    private final Texture stena;
+    private final Texture bod;
+    private final Texture duch;
+    private final Texture prazdno;
 
     public ManazerTextur() {
         this.inicializujTexturyHraca();
+        this.stena = new Texture("stena.png");
+        this.bod = new Texture("bod.png");
+        this.duch = new Texture("duch.png");
+        this.prazdno = new Texture("prazdno.png");
     }
 
     private void inicializujTexturyHraca() {
@@ -55,5 +63,21 @@ public class ManazerTextur {
 
     public Animation<Texture> getAnimaciaHracaVpravo() {
         return this.hracVpravo;
+    }
+
+    public Texture getTexturaStena() {
+        return this.stena;
+    }
+
+    public Texture getTexturaBod() {
+        return this.bod;
+    }
+
+    public Texture getTexturaDuch() {
+        return this.duch;
+    }
+
+    public Texture getTexturaPrazdno() {
+        return this.prazdno;
     }
 }

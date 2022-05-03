@@ -10,8 +10,17 @@ import java.util.Scanner;
 
 public class Mapa {
     private final HashMap<Vector2, Policko> mapa;
-    public Mapa() {
+    private final HashMap<Character, ITovarenNaPolicka> tovarenNaPolicka;
+    private final ManazerTextur manazerTextur;
+
+    public Mapa(ManazerTextur manazerTextur) {
         this.mapa = new HashMap<>();
+        this.manazerTextur = manazerTextur;
+        this.tovarenNaPolicka = new HashMap<>();
+        this.tovarenNaPolicka.put('*', Stena::new);
+        this.tovarenNaPolicka.put('p', Bod::new);
+        this.tovarenNaPolicka.put('G', Duch::new);
+        this.tovarenNaPolicka.put(' ', Prazdno::new);
     }
 
     public void nacitaj(String nazovSuboru) throws FileNotFoundException {
@@ -28,9 +37,8 @@ public class Mapa {
             for (int stlpec = 0; stlpec < obsah.length(); stlpec++) {
                 // x stlpec
                 // y riadok
-                if (obsah.charAt(stlpec) == '*') {
-                    this.mapa.put(new Vector2(stlpec, riadok), new Stena(new Vector2(stlpec, riadok)));
-                }
+                Vector2 pozicia = new Vector2(stlpec, riadok);
+                this.mapa.put(pozicia, this.tovarenNaPolicka.get(obsah.charAt(stlpec)).vytvor(manazerTextur, pozicia));
             }
             riadok--;
         }

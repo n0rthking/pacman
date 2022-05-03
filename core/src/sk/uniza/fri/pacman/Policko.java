@@ -24,4 +24,8 @@ public abstract class Policko {
     public void setPozicia(Vector2 pozicia) {
         this.pozicia = pozicia;
     }
+
+    public boolean jePrekazka() {
+        return false;
+    }
 }

@@ -16,7 +16,7 @@ public class HernaObrazovka extends ScreenAdapter {
         this.batch = new SpriteBatch();
         this.manazerTextur = new ManazerTextur();
         this.hrac = new Hrac(this.manazerTextur);
-        this.mapa = new Mapa();
+        this.mapa = new Mapa(this.manazerTextur);
         try {
             this.mapa.nacitaj("assets/mapa.txt");
         } catch (FileNotFoundException e) {

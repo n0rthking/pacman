@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-public class Hrac implements IPostava {
+public class Hrac {
     private Smer smer;
     private Vector2 pozicia;
     private float pocitadlo;
@@ -50,7 +50,7 @@ public class Hrac implements IPostava {
         this.pocitadlo = 0;
 
         Vector2 novaPozicia = new Vector2(this.pozicia.x + this.smer.getPosunX(), this.pozicia.y + this.smer.getPosunY());
-        if (mapa.getPolicko(novaPozicia) == null) {
+        if (!mapa.getPolicko(novaPozicia).jePrekazka()) {
             this.pozicia = novaPozicia;
         }
     }
