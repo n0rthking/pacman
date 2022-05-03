@@ -45,7 +45,7 @@ public class Hrac {
         }
 
         this.pocitadlo += delta;
-        if (this.pocitadlo < 0.3) {
+        if (this.pocitadlo < 0.25) {
             return;
         }
         this.pocitadlo = 0;
@@ -73,7 +73,7 @@ public class Hrac {
         batch.draw(this.aktualnaAnimacia.getKeyFrame(this.pocitadloAnimacia), this.pozicia.x * 32, this.pozicia.y * 32);
         // tmp
         this.font.setColor(Color.WHITE);
-        this.font.draw(batch, String.format("%d %d", Gdx.graphics.getFramesPerSecond(), this.skore), 50, Gdx.graphics.getHeight() - 50);
+        this.font.draw(batch, String.format("%d %d", Gdx.graphics.getFramesPerSecond(), this.skore), 10, Gdx.graphics.getHeight() - 10);
     }
 
     public Vector2 getPozicia() {
