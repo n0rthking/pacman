@@ -13,7 +13,7 @@ public class Hrac {
     private Smer smer;
     private Vector2 pozicia;
     private float pocitadlo;
-    private float pocitadlo2;
+    private float pocitadloAnimacia;
     private final ManazerTextur manazerTextur;
     private Animation<Texture> aktualnaAnimacia;
     //tmp
@@ -56,8 +56,8 @@ public class Hrac {
     }
 
     public void vykresliSa(SpriteBatch batch, float delta) {
-        this.pocitadlo2 += delta;
-        batch.draw(this.aktualnaAnimacia.getKeyFrame(this.pocitadlo2), this.pozicia.x * 32, this.pozicia.y * 32);
+        this.pocitadloAnimacia += delta;
+        batch.draw(this.aktualnaAnimacia.getKeyFrame(this.pocitadloAnimacia), this.pozicia.x * 32, this.pozicia.y * 32);
         // tmp
         this.font.setColor(Color.WHITE);
         this.font.draw(batch, String.format("%d", Gdx.graphics.getFramesPerSecond()), 50, Gdx.graphics.getHeight() - 50);

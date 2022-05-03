@@ -38,7 +38,7 @@ public class Mapa {
                 // x stlpec
                 // y riadok
                 Vector2 pozicia = new Vector2(stlpec, riadok);
-                this.mapa.put(pozicia, this.tovarenNaPolicka.get(obsah.charAt(stlpec)).vytvor(manazerTextur, pozicia));
+                this.mapa.put(pozicia, this.tovarenNaPolicka.get(obsah.charAt(stlpec)).vytvor(this.manazerTextur, pozicia));
             }
             riadok--;
         }
