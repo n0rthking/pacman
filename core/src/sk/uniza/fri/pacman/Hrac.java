@@ -2,10 +2,8 @@ package sk.uniza.fri.pacman;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
@@ -17,16 +15,12 @@ public class Hrac {
     private final ManazerTextur manazerTextur;
     private Animation<Texture> aktualnaAnimacia;
     private int skore;
-    //tmp
-    private final BitmapFont font;
 
     public Hrac(ManazerTextur manazerTextur) {
         this.manazerTextur = manazerTextur;
         this.aktualnaAnimacia = this.manazerTextur.getAnimaciaHracaHore();
         this.smer = Smer.HORE;
         this.pozicia = new Vector2(1, 1);
-        // tmp
-        this.font = new BitmapFont();
     }
 
     public void pohniSa(float delta, Mapa mapa) {
@@ -50,7 +44,7 @@ public class Hrac {
         }
         this.pocitadlo = 0;
 
-        Vector2 novaPozicia = new Vector2(this.pozicia.x + this.smer.getPosunX(), this.pozicia.y + this.smer.getPosunY());
+        Vector2 novaPozicia = this.pozicia.cpy().add(this.smer.getPosunX(), this.smer.getPosunY());
         if (!mapa.getPolicko(novaPozicia).jePrekazka()) {
             this.pozicia = novaPozicia;
         }
@@ -71,12 +65,13 @@ public class Hrac {
     public void vykresliSa(SpriteBatch batch, float delta) {
         this.pocitadloAnimacia += delta;
         batch.draw(this.aktualnaAnimacia.getKeyFrame(this.pocitadloAnimacia), this.pozicia.x * 32, this.pozicia.y * 32);
-        // tmp
-        this.font.setColor(Color.WHITE);
-        this.font.draw(batch, String.format("%d %d", Gdx.graphics.getFramesPerSecond(), this.skore), 10, Gdx.graphics.getHeight() - 10);
     }
 
     public Vector2 getPozicia() {
         return this.pozicia;
+    }
+
+    public int getSkore() {
+        return this.skore;
     }
 }

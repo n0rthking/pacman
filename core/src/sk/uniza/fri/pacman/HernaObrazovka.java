@@ -10,13 +10,14 @@ public class HernaObrazovka extends ScreenAdapter {
     private final SpriteBatch batch;
     private final Hrac hrac;
     private final Mapa mapa;
-    private ManazerTextur manazerTextur;
+    private final TextovyDisplej displej;
 
     public HernaObrazovka() {
+        ManazerTextur manazerTextur = new ManazerTextur();
         this.batch = new SpriteBatch();
-        this.manazerTextur = new ManazerTextur();
-        this.hrac = new Hrac(this.manazerTextur);
-        this.mapa = new Mapa(this.manazerTextur);
+        this.hrac = new Hrac(manazerTextur);
+        this.mapa = new Mapa(manazerTextur);
+        this.displej = new TextovyDisplej();
         try {
             this.mapa.nacitaj("assets/mapa.txt");
         } catch (FileNotFoundException e) {
@@ -30,6 +31,7 @@ public class HernaObrazovka extends ScreenAdapter {
         this.mapa.vykresliSa(batch);
         this.hrac.pohniSa(delta, this.mapa);
         this.hrac.vykresliSa(batch, delta);
+        this.displej.vykresliSa(batch, this.hrac);
         this.batch.end();
     }
 
