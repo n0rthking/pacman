@@ -17,5 +17,8 @@ public class TextovyDisplej {
         String riadokSkore = String.format("Skore: %d", hrac.getSkore() * 10);
         this.font.draw(batch, riadokFPS, sirkaMapy + 10, Gdx.graphics.getHeight() - 10);
         this.font.draw(batch, riadokSkore, sirkaMapy + 10, Gdx.graphics.getHeight() - 30);
+        if (hrac.getSkore() == hrac.getMaxSkore()) {
+            this.font.draw(batch, "Vyhral si", sirkaMapy + 10, Gdx.graphics.getHeight() - 50);
+        }
     }
 }

@@ -15,12 +15,14 @@ public class Hrac {
     private final ManazerTextur manazerTextur;
     private Animation<Texture> aktualnaAnimacia;
     private int skore;
+    private int maxSkore;
 
     public Hrac(ManazerTextur manazerTextur) {
         this.manazerTextur = manazerTextur;
         this.aktualnaAnimacia = this.manazerTextur.getAnimaciaHracaHore();
         this.smer = Smer.HORE;
         this.pozicia = new Vector2(1, 1);
+        this.maxSkore = -1;
     }
 
     public void pohniSa(float delta, Mapa mapa) {
@@ -57,8 +59,8 @@ public class Hrac {
             }
         }
 
-        if (this.skore == mapa.getMaxPocetBodov()) {
-            System.out.println("uz mas vsetky body");
+        if (this.maxSkore == -1) {
+            this.maxSkore = mapa.getMaxPocetBodov();
         }
     }
 
@@ -73,5 +75,9 @@ public class Hrac {
 
     public int getSkore() {
         return this.skore;
+    }
+
+    public int getMaxSkore() {
+        return this.maxSkore;
     }
 }
