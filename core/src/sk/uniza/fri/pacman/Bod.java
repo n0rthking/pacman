@@ -3,7 +3,7 @@ package sk.uniza.fri.pacman;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-public class Bod extends Policko {
+public class Bod extends Policko implements ISpecialnePolicko {
     private boolean viditelny;
 
     public Bod(ManazerTextur manazerTextur, Vector2 pozicia) {
@@ -11,18 +11,18 @@ public class Bod extends Policko {
         this.viditelny = true;
     }
 
-    public boolean jeViditelny() {
-        return this.viditelny;
-    }
-
-    public void zneviditelni() {
-        this.viditelny = false;
-    }
-
     @Override
     public void vykresliSa(SpriteBatch batch) {
         if (this.viditelny) {
             super.vykresliSa(batch);
+        }
+    }
+
+    @Override
+    public void pouziSa(Hrac hrac) {
+        if (this.viditelny) {
+            hrac.zvysSkore();
+            this.viditelny = false;
         }
     }
 }

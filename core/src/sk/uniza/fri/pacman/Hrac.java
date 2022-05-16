@@ -51,12 +51,9 @@ public class Hrac {
             this.pozicia = novaPozicia;
         }
 
-        if (mapa.getPolicko(this.pozicia) instanceof Bod) {
-            Bod aktualnyBod = (Bod) mapa.getPolicko(this.pozicia);
-            if (aktualnyBod.jeViditelny()) {
-                aktualnyBod.zneviditelni();
-                this.skore += 1;
-            }
+        if (mapa.getPolicko(this.pozicia) instanceof ISpecialnePolicko) {
+            ISpecialnePolicko policko = (ISpecialnePolicko) mapa.getPolicko(this.pozicia);
+            policko.pouziSa(this);
         }
 
         if (this.maxSkore == -1) {
@@ -79,5 +76,9 @@ public class Hrac {
 
     public int getMaxSkore() {
         return this.maxSkore;
+    }
+
+    public void zvysSkore() {
+        this.skore += 1;
     }
 }
