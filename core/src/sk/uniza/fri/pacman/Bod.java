@@ -19,7 +19,7 @@ public class Bod extends Policko implements ISpecialnePolicko {
     }
 
     @Override
-    public void pouziSa(Hrac hrac) {
+    public void pouziSa(Hrac hrac, Mapa mapa) {
         if (this.viditelny) {
             hrac.zvysSkore();
             this.viditelny = false;

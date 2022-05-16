@@ -5,7 +5,9 @@ import com.badlogic.gdx.math.Vector2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Mapa {
@@ -13,6 +15,7 @@ public class Mapa {
     private final HashMap<Character, ITovarenNaPolicka> tovarenNaPolicka;
     private final ManazerTextur manazerTextur;
     private int maxPocetBodov;
+    private final ArrayList<Vector2> pozicieTeleportov;
 
     public Mapa(ManazerTextur manazerTextur) {
         this.mapa = new HashMap<>();
@@ -23,6 +26,7 @@ public class Mapa {
         this.tovarenNaPolicka.put('G', Duch::new);
         this.tovarenNaPolicka.put('t', Teleport::new);
         this.tovarenNaPolicka.put(' ', Prazdno::new);
+        this.pozicieTeleportov = new ArrayList<>();
     }
 
     public void nacitaj(String nazovSuboru) throws FileNotFoundException {
@@ -41,6 +45,8 @@ public class Mapa {
                 this.mapa.put(pozicia, this.tovarenNaPolicka.get(obsah.charAt(stlpec)).vytvor(this.manazerTextur, pozicia));
                 if (obsah.charAt(stlpec) == 'p') {
                     this.maxPocetBodov++;
+                } else if (obsah.charAt(stlpec) == 't') {
+                    this.pozicieTeleportov.add(pozicia.cpy());
                 }
             }
             riadok--;
@@ -59,5 +65,16 @@ public class Mapa {
 
     public int getMaxPocetBodov() {
         return this.maxPocetBodov;
+    }
+
+    public Vector2 getNahodnyTeleport(Vector2 aktualny) {
+        Random generator = new Random();
+        ArrayList<Vector2> kopia = new ArrayList<>();
+        for (Vector2 pozicia : this.pozicieTeleportov) {
+            if (!aktualny.equals(pozicia)) {
+                kopia.add(pozicia.cpy());
+            }
+        }
+        return kopia.get(generator.nextInt(kopia.size()));
     }
 }

@@ -53,7 +53,7 @@ public class Hrac {
 
         if (mapa.getPolicko(this.pozicia) instanceof ISpecialnePolicko) {
             ISpecialnePolicko policko = (ISpecialnePolicko) mapa.getPolicko(this.pozicia);
-            policko.pouziSa(this);
+            policko.pouziSa(this, mapa);
         }
 
         if (this.maxSkore == -1) {
@@ -68,6 +68,10 @@ public class Hrac {
 
     public Vector2 getPozicia() {
         return this.pozicia;
+    }
+
+    public void setPozicia(Vector2 pozicia) {
+        this.pozicia = pozicia;
     }
 
     public int getSkore() {

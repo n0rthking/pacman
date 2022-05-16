@@ -7,7 +7,7 @@ public class Teleport extends Policko implements ISpecialnePolicko {
         super(manazerTextur.getTexturaTeleport(), pozicia);
     }
 
-    public void pouziSa(Hrac hrac) {
-        System.out.println("si na teleporte");
+    public void pouziSa(Hrac hrac, Mapa mapa) {
+        hrac.setPozicia(mapa.getNahodnyTeleport(this.getPozicia()).cpy());
     }
 }
