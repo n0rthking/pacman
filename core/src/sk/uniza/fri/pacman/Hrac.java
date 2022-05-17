@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.HashMap;
+
 public class Hrac {
     private Smer smer;
     private Vector2 pozicia;
@@ -60,6 +62,28 @@ public class Hrac {
 
         if (this.maxSkore == -1) {
             this.maxSkore = mapa.getMaxPocetBodov();
+        }
+    }
+
+    public void zmenSmerPoTeleportacii(Vector2 novaPozicia) {
+        HashMap<Vector2, Smer> teleportSmery = new HashMap<>();
+        teleportSmery.put(new Vector2(9, 20), Smer.DOLE);
+        teleportSmery.put(new Vector2(20, 1), Smer.VLAVO);
+        teleportSmery.put(new Vector2(26, 5), Smer.VPRAVO);
+        this.smer = teleportSmery.get(novaPozicia);
+        switch (this.smer) {
+            case DOLE:
+                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaDole();
+                break;
+            case VLAVO:
+                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaVlavo();
+                break;
+            case VPRAVO:
+                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaVpravo();
+                break;
+            case HORE:
+                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaHore();
+                break;
         }
     }
 

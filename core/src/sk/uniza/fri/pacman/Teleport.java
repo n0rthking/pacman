@@ -8,6 +8,8 @@ public class Teleport extends Policko implements ISpecialnePolicko {
     }
 
     public void pouziSa(Hrac hrac, Mapa mapa) {
-        hrac.setPozicia(mapa.getNahodnyTeleport(this.getPozicia()).cpy());
+        Vector2 novaPozicia = mapa.getNahodnyTeleport(this.getPozicia());
+        hrac.setPozicia(novaPozicia.cpy());
+        hrac.zmenSmerPoTeleportacii(novaPozicia);
     }
 }
