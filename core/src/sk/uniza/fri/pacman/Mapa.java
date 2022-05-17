@@ -16,6 +16,8 @@ public class Mapa {
     private final ManazerTextur manazerTextur;
     private int maxPocetBodov;
     private final ArrayList<Vector2> pozicieTeleportov;
+    private final Random generator;
+    private Duch duch;
 
     public Mapa(ManazerTextur manazerTextur) {
         this.mapa = new HashMap<>();
@@ -28,6 +30,7 @@ public class Mapa {
         this.tovarenNaPolicka.put('f', Ovocie::new);
         this.tovarenNaPolicka.put(' ', Prazdno::new);
         this.pozicieTeleportov = new ArrayList<>();
+        this.generator = new Random();
     }
 
     public void nacitaj(String nazovSuboru) throws FileNotFoundException {
@@ -48,6 +51,8 @@ public class Mapa {
                     this.maxPocetBodov++;
                 } else if (obsah.charAt(stlpec) == 't') {
                     this.pozicieTeleportov.add(pozicia.cpy());
+                } else if (obsah.charAt(stlpec) == 'G') {
+                    this.duch = (Duch) mapa.get(pozicia);
                 }
             }
             riadok--;
@@ -69,7 +74,6 @@ public class Mapa {
     }
 
     public Vector2 getNahodnyTeleport(Vector2 aktualny) {
-        Random generator = new Random();
         ArrayList<Vector2> kopia = new ArrayList<>();
         for (Vector2 pozicia : this.pozicieTeleportov) {
             if (!aktualny.equals(pozicia)) {
@@ -77,5 +81,9 @@ public class Mapa {
             }
         }
         return kopia.get(generator.nextInt(kopia.size()));
+    }
+
+    public Duch getDuch() {
+        return this.duch;
     }
 }
