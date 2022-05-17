@@ -16,6 +16,7 @@ public class Hrac {
     private Animation<Texture> aktualnaAnimacia;
     private int skore;
     private int maxSkore;
+    private int pocetZivotov;
 
     public Hrac(ManazerTextur manazerTextur) {
         this.manazerTextur = manazerTextur;
@@ -23,6 +24,7 @@ public class Hrac {
         this.smer = Smer.HORE;
         this.pozicia = new Vector2(1, 1);
         this.maxSkore = -1;
+        this.pocetZivotov = 3;
     }
 
     public void pohniSa(float delta, Mapa mapa) {
@@ -84,5 +86,13 @@ public class Hrac {
 
     public void zvysSkore() {
         this.skore += 1;
+    }
+
+    public int getPocetZivotov() {
+        return this.pocetZivotov;
+    }
+
+    public void zvysPocetZivotov() {
+        this.pocetZivotov += 1;
     }
 }
