@@ -13,6 +13,7 @@ public class ManazerTextur {
     private final Texture duch;
     private final Texture prazdno;
     private final Texture teleport;
+    private final Texture ovocie;
 
     public ManazerTextur() {
         this.inicializujTexturyHraca();
@@ -21,6 +22,7 @@ public class ManazerTextur {
         this.duch = new Texture("duch.png");
         this.prazdno = new Texture("prazdno.png");
         this.teleport = new Texture("teleport.png");
+        this.ovocie = new Texture("ovocie.png");
     }
 
     private void inicializujTexturyHraca() {
@@ -85,5 +87,9 @@ public class ManazerTextur {
 
     public Texture getTexturaTeleport() {
         return this.teleport;
+    }
+
+    public Texture getTexturaOvocie() {
+        return this.ovocie;
     }
 }

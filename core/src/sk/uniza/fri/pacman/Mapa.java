@@ -25,6 +25,7 @@ public class Mapa {
         this.tovarenNaPolicka.put('p', Bod::new);
         this.tovarenNaPolicka.put('G', Duch::new);
         this.tovarenNaPolicka.put('t', Teleport::new);
+        this.tovarenNaPolicka.put('f', Ovocie::new);
         this.tovarenNaPolicka.put(' ', Prazdno::new);
         this.pozicieTeleportov = new ArrayList<>();
     }
