@@ -12,8 +12,9 @@ public class HernaObrazovka extends ScreenAdapter {
     private final Mapa mapa;
     private final TextovyDisplej displej;
     private final Duch duch;
+    private final PacmanGame pacmanGame;
 
-    public HernaObrazovka() {
+    public HernaObrazovka(PacmanGame pacmanGame) {
         ManazerTextur manazerTextur = new ManazerTextur();
         this.batch = new SpriteBatch();
         this.hrac = new Hrac(manazerTextur);
@@ -25,20 +26,29 @@ public class HernaObrazovka extends ScreenAdapter {
             throw new RuntimeException(e);
         }
         this.duch = mapa.getDuch();
+        this.pacmanGame = pacmanGame;
     }
 
     public void render(float delta) {
         ScreenUtils.clear(0.1f, 0.1f, 0.1f, 1);
         this.batch.begin();
-        if (!this.hrac.isKoniecHry()) this.duch.pohniSa(delta, this.mapa, this.hrac);
+        this.duch.pohniSa(delta, this.mapa, this.hrac);
         this.mapa.vykresliSa(batch);
-        if (!this.hrac.isKoniecHry()) this.hrac.pohniSa(delta, this.mapa);
+        this.hrac.pohniSa(delta, this.mapa);
         this.hrac.vykresliSa(batch, delta);
         this.displej.vykresliSa(batch, this.hrac);
         this.batch.end();
+
+        if (this.hrac.isKoniecHry()) {
+            this.zobrazGameOver();
+        }
     }
 
     public void dispose() {
         this.batch.dispose();
+    }
+
+    public void zobrazGameOver() {
+        this.pacmanGame.setScreen(new GameOverObrazovka());
     }
 }
