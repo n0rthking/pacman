@@ -7,7 +7,7 @@ pacman
 *p** * ***p    * ppp** ***p** **fp***  *
 * *pp*  pp *** ****p   p pp**p***p****p*
 * * ** *** *G* * pp ***p** ppp   p   *p*
-* p *  p * *    p* ****p**** ** *pp* * *
+* p *  p *   *  p* ****p**** ** *pp* * *
 * *  p *   * * *p*  ppp   ** ** **p* p *
 *p**** *** *** *p* * ** * p  ppp  p* * *
 *p* p  *   p pp*p* * ppp* ** **** **pp *
