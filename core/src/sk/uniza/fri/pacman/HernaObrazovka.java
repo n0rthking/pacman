@@ -49,6 +49,6 @@ public class HernaObrazovka extends ScreenAdapter {
     }
 
     public void zobrazGameOver() {
-        this.pacmanGame.setScreen(new GameOverObrazovka());
+        this.pacmanGame.setScreen(new GameOverObrazovka(this.pacmanGame));
     }
 }
