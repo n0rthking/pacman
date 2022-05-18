@@ -79,7 +79,10 @@ public class Duch extends Policko {
 
     public void pohniSa(float delta, Mapa mapa, Hrac hrac) {
         if (hrac.getPozicia().equals(this.getPozicia())) {
-            System.out.println("game over");
+            hrac.znizPocetZivotov();
+            this.setPozicia(this.pociatocnaPozicia.cpy());
+            this.predchadzajuciSmer = null;
+            return;
         }
 
         this.pocitadlo += delta;

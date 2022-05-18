@@ -19,6 +19,7 @@ public class Hrac {
     private int skore;
     private int maxSkore;
     private int pocetZivotov;
+    private boolean koniecHry;
 
     public Hrac(ManazerTextur manazerTextur) {
         this.manazerTextur = manazerTextur;
@@ -27,6 +28,7 @@ public class Hrac {
         this.pozicia = new Vector2(1, 1);
         this.maxSkore = -1;
         this.pocetZivotov = 3;
+        this.koniecHry = false;
     }
 
     public void pohniSa(float delta, Mapa mapa) {
@@ -118,5 +120,17 @@ public class Hrac {
 
     public void zvysPocetZivotov() {
         this.pocetZivotov += 1;
+    }
+
+    public void znizPocetZivotov() {
+        this.pocetZivotov -= 1;
+        if (this.pocetZivotov == 0) {
+            this.koniecHry = true;
+            System.out.println("koniec hty");
+        }
+    }
+
+    public boolean isKoniecHry() {
+        return this.koniecHry;
     }
 }

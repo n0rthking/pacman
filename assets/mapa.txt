@@ -5,11 +5,11 @@ pacman
 *p* *** * ***ppp ** ppp **p**** ** **pp*
 *p* ppp ppp***** ***** ***p  ppp   ppp**
 *p** * ***p    * ppp** ***p** **fp***  *
-* *pp*  pp *** ****p   p pp**p***p****p*
-* * ** *** *G* * pp ***p** ppp   p   *p*
-* p *  p *   *  p* ****p**** ** *pp* * *
+* *pp*  pp * * ****p   p pp**p***p****p*
+* * ** *** * * * pp ***p** ppp   p   *p*
+* p *  p *  G   p* ****p**** ** *pp* * *
 * *  p *   * * *p*  ppp   ** ** **p* p *
-*p**** *** *** *p* * ** * p  ppp  p* * *
+*p**** *** * * *p* * ** * p  ppp  p* * *
 *p* p  *   p pp*p* * ppp* ** **** **pp *
 *p  * p  * ***** * **** *p** ppp*pp p*p*
 * * * **** *   pppp  ** *p** ** * ****p*
