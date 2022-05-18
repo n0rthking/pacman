@@ -28,15 +28,11 @@ public class HernaObrazovka extends ScreenAdapter {
     }
 
     public void render(float delta) {
-        if (hrac.isKoniecHry()) {
-            return;
-        }
-
         ScreenUtils.clear(0.1f, 0.1f, 0.1f, 1);
         this.batch.begin();
-        this.duch.pohniSa(delta, this.mapa, this.hrac);
+        if (!this.hrac.isKoniecHry()) this.duch.pohniSa(delta, this.mapa, this.hrac);
         this.mapa.vykresliSa(batch);
-        this.hrac.pohniSa(delta, this.mapa);
+        if (!this.hrac.isKoniecHry()) this.hrac.pohniSa(delta, this.mapa);
         this.hrac.vykresliSa(batch, delta);
         this.displej.vykresliSa(batch, this.hrac);
         this.batch.end();
