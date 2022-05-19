@@ -1,6 +1,9 @@
-package sk.uniza.fri.pacman;
+package sk.uniza.fri.pacman.policka;
 
 import com.badlogic.gdx.math.Vector2;
+import sk.uniza.fri.pacman.hra.Hrac;
+import sk.uniza.fri.pacman.hra.ManazerTextur;
+import sk.uniza.fri.pacman.hra.Mapa;
 
 public class Teleport extends Policko implements ISpecialnePolicko {
     public Teleport(ManazerTextur manazerTextur, Vector2 pozicia) {

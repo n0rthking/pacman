@@ -1,4 +1,4 @@
-package sk.uniza.fri.pacman;
+package sk.uniza.fri.pacman.obrazovky;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -6,6 +6,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import sk.uniza.fri.pacman.PacmanGame;
 
 public class GameOverObrazovka extends ScreenAdapter {
     private final BitmapFont font;

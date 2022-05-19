@@ -1,4 +1,4 @@
-package sk.uniza.fri.pacman;
+package sk.uniza.fri.pacman.hra;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
