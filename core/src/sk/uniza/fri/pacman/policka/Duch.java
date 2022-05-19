@@ -64,7 +64,6 @@ public class Duch extends Policko {
         float minimum = -1;
 
         if (mozneSmery.isEmpty()) {
-            System.out.println("prazdne moznosti");
             return null;
         }
 

@@ -127,7 +127,6 @@ public class Hrac {
         this.pocetZivotov -= 1;
         if (this.pocetZivotov == 0) {
             this.koniecHry = true;
-            System.out.println("koniec hty");
         }
     }
 

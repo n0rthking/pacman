@@ -3,7 +3,7 @@ package sk.uniza.fri.pacman.obrazovky;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
-import sk.uniza.fri.pacman.*;
+import sk.uniza.fri.pacman.PacmanGame;
 import sk.uniza.fri.pacman.hra.Hrac;
 import sk.uniza.fri.pacman.hra.ManazerTextur;
 import sk.uniza.fri.pacman.hra.Mapa;
@@ -48,6 +48,10 @@ public class HernaObrazovka extends ScreenAdapter {
         if (this.hrac.isKoniecHry()) {
             this.zobrazGameOver();
         }
+
+        if (this.hrac.getSkore() == this.hrac.getMaxSkore()) {
+            this.zobrazVyhernuObrazovku();
+        }
     }
 
     public void dispose() {
@@ -55,6 +59,10 @@ public class HernaObrazovka extends ScreenAdapter {
     }
 
     public void zobrazGameOver() {
-        this.pacmanGame.setScreen(new GameOverObrazovka(this.pacmanGame));
+        this.pacmanGame.setScreen(new GameOverObrazovka(this.pacmanGame, this.hrac));
+    }
+
+    public void zobrazVyhernuObrazovku() {
+        this.pacmanGame.setScreen(new VyhernaObrazovka(this.pacmanGame));
     }
 }

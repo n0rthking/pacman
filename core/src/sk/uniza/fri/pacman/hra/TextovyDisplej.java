@@ -19,8 +19,5 @@ public class TextovyDisplej {
         this.font.draw(batch, riadokFPS, sirkaMapy + 10, Gdx.graphics.getHeight() - 10);
         this.font.draw(batch, riadokSkore, sirkaMapy + 10, Gdx.graphics.getHeight() - 30);
         this.font.draw(batch, riadokZivoty, sirkaMapy + 10, Gdx.graphics.getHeight() - 50);
-        if (hrac.getSkore() == hrac.getMaxSkore()) {
-            this.font.draw(batch, "Vyhral si", sirkaMapy + 10, Gdx.graphics.getHeight() - 70);
-        }
     }
 }
