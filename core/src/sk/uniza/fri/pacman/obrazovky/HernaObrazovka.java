@@ -35,6 +35,10 @@ public class HernaObrazovka extends ScreenAdapter {
         this.pacmanGame = pacmanGame;
     }
 
+    /**
+     * Render
+     * @param delta The time in seconds since the last render.
+     */
     public void render(float delta) {
         ScreenUtils.clear(0.1f, 0.1f, 0.1f, 1);
         this.batch.begin();
@@ -54,14 +58,23 @@ public class HernaObrazovka extends ScreenAdapter {
         }
     }
 
+    /**
+     * Dispose
+     */
     public void dispose() {
         this.batch.dispose();
     }
 
+    /**
+     * Zobrazenie game over obrazovky
+     */
     public void zobrazGameOver() {
         this.pacmanGame.setScreen(new GameOverObrazovka(this.pacmanGame, this.hrac));
     }
 
+    /**
+     * Zobrazenie vyhernej obrazovky
+     */
     public void zobrazVyhernuObrazovku() {
         this.pacmanGame.setScreen(new VyhernaObrazovka(this.pacmanGame));
     }

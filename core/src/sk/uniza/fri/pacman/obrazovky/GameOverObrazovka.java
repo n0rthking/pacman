@@ -22,7 +22,10 @@ public class GameOverObrazovka extends ScreenAdapter {
         this.hrac = hrac;
     }
 
-    @Override
+    /**
+     * Render
+     * @param delta The time in seconds since the last render.
+     */
     public void render(float delta) {
         int skore = hrac.getSkore() * 10;
         ScreenUtils.clear(0.2f, 0.1f, 0.1f, 1);
@@ -35,5 +38,12 @@ public class GameOverObrazovka extends ScreenAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             this.pacmanGame.setScreen(new HernaObrazovka(this.pacmanGame));
         }
+    }
+
+    /**
+     * Dispose
+     */
+    public void dispose() {
+        this.batch.dispose();
     }
 }

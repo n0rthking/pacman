@@ -19,7 +19,10 @@ public class VyhernaObrazovka extends ScreenAdapter {
         this.pacmanGame = pacmanGame;
     }
 
-    @Override
+    /**
+     * Render
+     * @param delta The time in seconds since the last render.
+     */
     public void render(float delta) {
         ScreenUtils.clear(0.1f, 0.2f, 0.1f, 1);
         this.batch.begin();
@@ -30,5 +33,12 @@ public class VyhernaObrazovka extends ScreenAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             this.pacmanGame.setScreen(new HernaObrazovka(this.pacmanGame));
         }
+    }
+
+    /**
+     * Dispose
+     */
+    public void dispose() {
+        this.batch.dispose();
     }
 }
