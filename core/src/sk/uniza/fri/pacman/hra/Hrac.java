@@ -32,6 +32,11 @@ public class Hrac {
         this.koniecHry = false;
     }
 
+    /**
+     * Pohyb hraca a zmena animovanej textry textury podla stlacenej klavesy
+     * @param delta cas od posledneho vykreslenia
+     * @param mapa  instancia mapy
+     */
     public void pohniSa(float delta, Mapa mapa) {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             this.smer = Smer.HORE;
@@ -68,6 +73,10 @@ public class Hrac {
         }
     }
 
+    /**
+     * Zmena smeru a textury hraca po pouziti teleportu
+     * @param novaPozicia suradnice novej pozicie hraca
+     */
     public void zmenSmerPoTeleportacii(Vector2 novaPozicia) {
         HashMap<Vector2, Smer> teleportSmery = new HashMap<>();
         teleportSmery.put(new Vector2(9, 20), Smer.DOLE);
@@ -90,39 +99,73 @@ public class Hrac {
         }
     }
 
+    /**
+     * Vykreslenie textury hraca
+     * @param batch batch
+     * @param delta cas od posledneho vykreslenia
+     */
     public void vykresliSa(SpriteBatch batch, float delta) {
         this.pocitadloAnimacia += delta;
         batch.draw(this.aktualnaAnimacia.getKeyFrame(this.pocitadloAnimacia), this.pozicia.x * 32, this.pozicia.y * 32);
     }
 
+    /**
+     *
+     * @return pozicia hraca
+     */
     public Vector2 getPozicia() {
         return this.pozicia;
     }
 
+    /**
+     * Zmena pozicie hraca
+     * @param pozicia suradnice novej pozicie
+     */
     public void setPozicia(Vector2 pozicia) {
         this.pozicia = pozicia;
     }
 
+    /**
+     *
+     * @return skore hraca
+     */
     public int getSkore() {
         return this.skore;
     }
 
+    /**
+     *
+     * @return maximalne mozne skore
+     */
     public int getMaxSkore() {
         return this.maxSkore;
     }
 
+    /**
+     * Zvysenie skore o 1
+     */
     public void zvysSkore() {
         this.skore += 1;
     }
 
+    /**
+     *
+     * @return pocet aktualnych zivotov hraca
+     */
     public int getPocetZivotov() {
         return this.pocetZivotov;
     }
 
+    /**
+     * Zvysi pocet zivotov o 1
+     */
     public void zvysPocetZivotov() {
         this.pocetZivotov += 1;
     }
 
+    /**
+     * Znizi pocet zivotov o 1, ak uz nema hrac zivoty ukonci hru
+     */
     public void znizPocetZivotov() {
         this.pocetZivotov -= 1;
         if (this.pocetZivotov == 0) {
@@ -130,6 +173,10 @@ public class Hrac {
         }
     }
 
+    /**
+     *
+     * @return true ak nastal koniec hry
+     */
     public boolean isKoniecHry() {
         return this.koniecHry;
     }

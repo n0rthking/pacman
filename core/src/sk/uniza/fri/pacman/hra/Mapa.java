@@ -34,6 +34,11 @@ public class Mapa {
         this.generator = new Random();
     }
 
+    /**
+     * Nacitanie a vytvorenie mapy zo suboru
+     * @param nazovSuboru cesta k suboru
+     * @throws FileNotFoundException ak nebol najdeny subor
+     */
     public void nacitaj(String nazovSuboru) throws FileNotFoundException {
         File subor = new File(nazovSuboru);
         Scanner skener = new Scanner(subor);
@@ -60,20 +65,38 @@ public class Mapa {
         }
     }
 
+    /**
+     * Vykreslenie vsetkych policok mapy
+     * @param batch batch
+     */
     public void vykresliSa(SpriteBatch batch) {
         for (Policko policko : this.mapa.values()) {
             policko.vykresliSa(batch);
         }
     }
 
+    /**
+     *
+     * @param pozicia suradnice
+     * @return policko na zadanych suradniciach
+     */
     public Policko getPolicko(Vector2 pozicia) {
         return this.mapa.get(pozicia);
     }
 
+    /**
+     *
+     * @return pocet bodov v mape
+     */
     public int getMaxPocetBodov() {
         return this.maxPocetBodov;
     }
 
+    /**
+     *
+     * @param aktualny suradnice aktualneho teleportu
+     * @return suradnice nahodne vybraneho teleportu na mape okrem aktualneho
+     */
     public Vector2 getNahodnyTeleport(Vector2 aktualny) {
         ArrayList<Vector2> kopia = new ArrayList<>();
         for (Vector2 pozicia : this.pozicieTeleportov) {
@@ -84,6 +107,10 @@ public class Mapa {
         return kopia.get(generator.nextInt(kopia.size()));
     }
 
+    /**
+     *
+     * @return instancia ducha
+     */
     public Duch getDuch() {
         return this.duch;
     }

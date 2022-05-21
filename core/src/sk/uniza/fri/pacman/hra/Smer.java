@@ -14,10 +14,18 @@ public enum Smer {
         this.posunY = posunY;
     }
 
+    /**
+     *
+     * @return posun v smere x
+     */
     public int getPosunX() {
         return this.posunX;
     }
 
+    /**
+     *
+     * @return posun v smere y
+     */
     public int getPosunY() {
         return this.posunY;
     }

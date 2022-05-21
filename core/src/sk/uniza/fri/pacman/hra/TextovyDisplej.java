@@ -11,6 +11,11 @@ public class TextovyDisplej {
         this.font = new BitmapFont();
     }
 
+    /**
+     * Vykreslenie textoveho displeja, ktory obsahuje fps, skore a pocet zivotov hraca
+     * @param batch batch
+     * @param hrac  instancia hraca
+     */
     public void vykresliSa(SpriteBatch batch, Hrac hrac) {
         int sirkaMapy = 1280;
         String riadokFPS = String.format("FPS: %d", Gdx.graphics.getFramesPerSecond());
