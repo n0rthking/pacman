@@ -14,14 +14,21 @@ public class Ovocie extends Policko implements ISpecialnePolicko {
         this.viditelne = true;
     }
 
-    @Override
+    /**
+     * Vykreslenie textury len v pripade, ze ovocie este nebolo zjedene
+     * @param batch batch
+     */
     public void vykresliSa(SpriteBatch batch) {
         if (this.viditelne) {
             super.vykresliSa(batch);
         }
     }
 
-    @Override
+    /**
+     * Prida 1 zivot hracovi po zjedeni ovocia
+     * @param hrac instancia hraca
+     * @param mapa instancia mapy
+     */
     public void pouziSa(Hrac hrac, Mapa mapa) {
         if (this.viditelne) {
             hrac.zvysPocetZivotov();

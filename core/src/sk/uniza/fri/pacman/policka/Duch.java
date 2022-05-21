@@ -25,6 +25,11 @@ public class Duch extends Policko {
         this.predchadzajuciSmer = null;
     }
 
+    /**
+     * Vrati opacny smer k aktualnemu smeru, napriklad hore vrati dole
+     * @param smer aktualny smer
+     * @return opacny smer
+     */
     private Smer dajOpacnySmer(Smer smer) {
         switch(smer) {
             case HORE:
@@ -40,6 +45,12 @@ public class Duch extends Policko {
         }
     }
 
+    /**
+     * Podla aktualnej pozicie vrati mozne smery pohybu, novy smer nemoze byt rovnaky ako predchadzajuci
+     * ani smerovat do policka, ktore je prekazka
+     * @param mapa instancia mapy
+     * @return ArrayList aktualnych moznych smerov
+     */
     private ArrayList<Smer> dajMozneSmery(Mapa mapa) {
         ArrayList<Smer> vysledok = new ArrayList<>();
 
@@ -59,6 +70,13 @@ public class Duch extends Policko {
         return vysledok;
     }
 
+    /**
+     * Z vstupnych smerov vyberie najlepsi smer k hracovi podla vzdialenosti,
+     * null hodnota je vratena v pripade, ze jediny smer by bol opacny k predchadzajucemu
+     * @param mozneSmery ArrayList moznych smerov
+     * @param hrac       instancia hraca
+     * @return najlepsi smer k hracovi, null ak taky smer neexistuje
+     */
     private Smer najdiNajlepsiSmer(ArrayList<Smer> mozneSmery, Hrac hrac) {
         Smer vysledok = null;
         float minimum = -1;
@@ -79,6 +97,12 @@ public class Duch extends Policko {
         return vysledok;
     }
 
+    /**
+     * Pohyb ducha podla aktualnej pozicie hraca, v pripade kolizie s hracom mu znizi pocet zivotov
+     * @param delta cas od posledneho vykreslenia
+     * @param mapa  instancia mapy
+     * @param hrac  instancia hraca
+     */
     public void pohniSa(float delta, Mapa mapa, Hrac hrac) {
         if (hrac.getPozicia().equals(this.getPozicia())) {
             hrac.znizPocetZivotov();

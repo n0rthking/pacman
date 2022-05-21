@@ -13,18 +13,34 @@ public abstract class Policko {
         this.pozicia = pozicia;
     }
 
+    /**
+     * Vykreslenie textury policka
+     * @param batch batch
+     */
     public void vykresliSa(SpriteBatch batch) {
         batch.draw(this.textura, this.pozicia.x * 32, this.pozicia.y * 32);
     }
 
+    /**
+     *
+     * @return suradnice policka
+     */
     public Vector2 getPozicia() {
         return this.pozicia;
     }
 
+    /**
+     * Nastavenie suradice policku
+     * @param pozicia suradnice
+     */
     public void setPozicia(Vector2 pozicia) {
         this.pozicia = pozicia;
     }
 
+    /**
+     *
+     * @return true ak je policko prekazka, inak false
+     */
     public boolean jePrekazka() {
         return false;
     }

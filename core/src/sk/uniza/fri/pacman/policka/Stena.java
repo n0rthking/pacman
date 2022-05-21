@@ -8,7 +8,10 @@ public class Stena extends Policko {
         super(manazerTextur.getTexturaStena(), pozicia);
     }
 
-    @Override
+    /**
+     * Stena je prekazka
+     * @return vzdy true
+     */
     public boolean jePrekazka() {
         return true;
     }

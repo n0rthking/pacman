@@ -14,14 +14,21 @@ public class Bod extends Policko implements ISpecialnePolicko {
         this.viditelny = true;
     }
 
-    @Override
+    /**
+     * Vykreslenie textury iba ak bod nebol zjedeny
+     * @param batch batch
+     */
     public void vykresliSa(SpriteBatch batch) {
         if (this.viditelny) {
             super.vykresliSa(batch);
         }
     }
 
-    @Override
+    /**
+     * Zvysi skore hracovi
+     * @param hrac instancia hraca
+     * @param mapa instancia mapy
+     */
     public void pouziSa(Hrac hrac, Mapa mapa) {
         if (this.viditelny) {
             hrac.zvysSkore();

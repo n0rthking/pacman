@@ -10,6 +10,11 @@ public class Teleport extends Policko implements ISpecialnePolicko {
         super(manazerTextur.getTexturaTeleport(), pozicia);
     }
 
+    /**
+     * Po pouziti teleportu sa hracovi zmenia suradnice na iny teleport na mape
+     * @param hrac instancia hraca
+     * @param mapa instancia mapy
+     */
     public void pouziSa(Hrac hrac, Mapa mapa) {
         Vector2 novaPozicia = mapa.getNahodnyTeleport(this.getPozicia());
         hrac.setPozicia(novaPozicia.cpy());
