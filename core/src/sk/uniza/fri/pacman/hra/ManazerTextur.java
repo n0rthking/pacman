@@ -53,42 +53,82 @@ public class ManazerTextur {
         this.hracVpravo.setPlayMode(Animation.PlayMode.LOOP);
     }
 
+    /**
+     *
+     * @return animovana textura hraca smerujuca hore
+     */
     public Animation<Texture> getAnimaciaHracaHore() {
         return this.hracHore;
     }
 
+    /**
+     *
+     * @return animovana textura hraca smerujuca dole
+     */
     public Animation<Texture> getAnimaciaHracaDole() {
         return this.hracDole;
     }
 
+    /**
+     *
+     * @return animovana textura hraca smerujuca vlavo
+     */
     public Animation<Texture> getAnimaciaHracaVlavo() {
         return this.hracVlavo;
     }
 
+    /**
+     *
+     * @return animovana textura hraca smerujuca vpravo
+     */
     public Animation<Texture> getAnimaciaHracaVpravo() {
         return this.hracVpravo;
     }
 
+    /**
+     *
+     * @return textura steny
+     */
     public Texture getTexturaStena() {
         return this.stena;
     }
 
+    /**
+     *
+     * @return textura bodu
+     */
     public Texture getTexturaBod() {
         return this.bod;
     }
 
+    /**
+     *
+     * @return textura ducha
+     */
     public Texture getTexturaDuch() {
         return this.duch;
     }
 
+    /**
+     *
+     * @return textura prazdneho policka
+     */
     public Texture getTexturaPrazdno() {
         return this.prazdno;
     }
 
+    /**
+     *
+     * @return textura teleportu
+     */
     public Texture getTexturaTeleport() {
         return this.teleport;
     }
 
+    /**
+     *
+     * @return textura ovocia
+     */
     public Texture getTexturaOvocie() {
         return this.ovocie;
     }
