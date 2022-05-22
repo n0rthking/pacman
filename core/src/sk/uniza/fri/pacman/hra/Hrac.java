@@ -64,7 +64,7 @@ public class Hrac {
         }
 
         if (mapa.getPolicko(this.pozicia) instanceof ISpecialnePolicko) {
-            ISpecialnePolicko policko = (ISpecialnePolicko) mapa.getPolicko(this.pozicia);
+            ISpecialnePolicko policko = (ISpecialnePolicko)mapa.getPolicko(this.pozicia);
             policko.pouziSa(this, mapa);
         }
 
@@ -85,16 +85,16 @@ public class Hrac {
         this.smer = teleportSmery.get(novaPozicia);
         switch (this.smer) {
             case DOLE:
-                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaDole();
+                this.aktualnaAnimacia = this.manazerTextur.getAnimaciaHracaDole();
                 break;
             case VLAVO:
-                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaVlavo();
+                this.aktualnaAnimacia = this.manazerTextur.getAnimaciaHracaVlavo();
                 break;
             case VPRAVO:
-                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaVpravo();
+                this.aktualnaAnimacia = this.manazerTextur.getAnimaciaHracaVpravo();
                 break;
             case HORE:
-                this.aktualnaAnimacia = manazerTextur.getAnimaciaHracaHore();
+                this.aktualnaAnimacia = this.manazerTextur.getAnimaciaHracaHore();
                 break;
         }
     }

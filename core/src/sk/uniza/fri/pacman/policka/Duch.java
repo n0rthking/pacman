@@ -31,7 +31,7 @@ public class Duch extends Policko {
      * @return opacny smer
      */
     private Smer dajOpacnySmer(Smer smer) {
-        switch(smer) {
+        switch (smer) {
             case HORE:
                 return Smer.DOLE;
             case DOLE:

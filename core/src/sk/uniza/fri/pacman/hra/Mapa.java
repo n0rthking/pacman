@@ -2,7 +2,14 @@ package sk.uniza.fri.pacman.hra;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import sk.uniza.fri.pacman.policka.*;
+import sk.uniza.fri.pacman.policka.Bod;
+import sk.uniza.fri.pacman.policka.Duch;
+import sk.uniza.fri.pacman.policka.ITovarenNaPolicka;
+import sk.uniza.fri.pacman.policka.Ovocie;
+import sk.uniza.fri.pacman.policka.Policko;
+import sk.uniza.fri.pacman.policka.Prazdno;
+import sk.uniza.fri.pacman.policka.Stena;
+import sk.uniza.fri.pacman.policka.Teleport;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -58,7 +65,7 @@ public class Mapa {
                 } else if (obsah.charAt(stlpec) == 't') {
                     this.pozicieTeleportov.add(pozicia.cpy());
                 } else if (obsah.charAt(stlpec) == 'G') {
-                    this.duch = (Duch) mapa.get(pozicia);
+                    this.duch = (Duch)this.mapa.get(pozicia);
                 }
             }
             riadok--;
@@ -104,7 +111,7 @@ public class Mapa {
                 kopia.add(pozicia.cpy());
             }
         }
-        return kopia.get(generator.nextInt(kopia.size()));
+        return kopia.get(this.generator.nextInt(kopia.size()));
     }
 
     /**

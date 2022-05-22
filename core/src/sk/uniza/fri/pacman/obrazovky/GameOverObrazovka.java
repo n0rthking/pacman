@@ -27,7 +27,7 @@ public class GameOverObrazovka extends ScreenAdapter {
      * @param delta The time in seconds since the last render.
      */
     public void render(float delta) {
-        int skore = hrac.getSkore() * 10;
+        int skore = this.hrac.getSkore() * 10;
         ScreenUtils.clear(0.2f, 0.1f, 0.1f, 1);
         this.batch.begin();
         this.font.draw(this.batch, "Prehral si", Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
